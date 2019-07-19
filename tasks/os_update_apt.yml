@@ -1,0 +1,13 @@
+---
+- name: updating Redhat base systems
+  hosts: debian
+  become: true
+
+  tasks:
+  - name:
+    apt:
+      update_cache: yes
+      
+  - name:
+    apt:
+      upgrade: yes
