@@ -1,0 +1,11 @@
+---
+- name: updating Redhat base systems
+  hosts: redhat
+  become: true
+
+  tasks:
+  - name:
+    yum:
+      name: "*"
+      state: latest
+      exlude: kernel*
