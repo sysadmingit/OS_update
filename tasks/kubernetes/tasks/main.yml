@@ -1,0 +1,16 @@
+---
+  #k8s install master and nodes
+  - name: installing K8 on master
+    import_tasks: k8_master_install.yml
+
+  - name: installing K8 on nodes
+    import_tasks: k8_install.yml
+
+
+  # Docker CE install prerequisite
+  - name: installing docker prerequisite
+    import_tasks: docker_pre_req_yum.yml
+
+  #Docker install
+  - name: installing docker_ce
+    import_tasks: docker_install_yum.yml
