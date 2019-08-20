@@ -1,0 +1,29 @@
+
+---
+#YMLfile to install the repo for K8 and install the 3 modules kubelet,kubeadm,kubectl
+#the --check will report some errors on the kubelet install but this is a bug.
+
+#installing kubernetes repo
+- hosts: k8
+  tasks:
+    - name: installing kubernetes repo
+      yum_repository:
+        name: kubernetes-repo
+        description: repo for kubernetes
+        baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+        enabled: yes
+        gpgcheck: no
+
+#installing kubernetes quick setup for the master only
+    - name: K8 packages kubelet installation
+      yum:
+        name: kubelet
+        state: present
+    - name: K8 packages kubeadm installation
+      yum:
+        name: kubeadm
+        state: present
+    - name: K8 packages kubectl installation
+      yum:
+        name: kubectl
+        state: present
