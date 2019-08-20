@@ -1,0 +1,14 @@
+---
+#installation of docker prerequisite for REDHAT base sys ( fedora,centos,redhat..)
+- name: starting docker install REDHAT based prerequisite
+  hosts: k8_cluster
+
+#task
+  tasks:
+  - name: installing  Docker Pre REQ
+    yum:
+      name:
+        - yum-utils
+        - device-mapper-persistent-data
+        - lvm2
+      state: present
