@@ -1,0 +1,25 @@
+
+---
+#installing kubernetes repo
+- hosts: k8
+  tasks:
+    - name: installing kubernetes repo
+      yum_repository:
+        name: kubernetes-repo
+        description: repo for kubernetes
+        baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+        enabled: yes
+        gpgcheck: no
+        gpgcheck: https://packages.cloud.google.com/yum/doc/yum-key.gpg
+                https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+
+#installing kubernetes quick setup
+    - name: K8 packages installation
+      yum:
+        name:  {{packages}}
+      vars:
+        packages:
+          - kubelet
+          - kubeadm
+          - kubectl
+        state: present
