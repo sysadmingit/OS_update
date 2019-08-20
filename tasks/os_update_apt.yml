@@ -1,5 +1,5 @@
 ---
-- name: updating Redhat base systems
+- name: updating debian based systems
   hosts: debian
   become: true
 

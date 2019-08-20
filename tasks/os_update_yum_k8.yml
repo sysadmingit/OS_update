@@ -1,7 +1,9 @@
 ---
 - name: updating Redhat base systems
-  hosts: redhat
+  hosts: k8_cluster
   become: true
+  roles:
+    - kubernetes
 
   tasks:
   - name: upgrading all packages via YUM
