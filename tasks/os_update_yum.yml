@@ -1,6 +1,6 @@
 ---
 - name: updating Redhat base systems
-  hosts: redhat
+  hosts: all
   become: true
 
   tasks:
