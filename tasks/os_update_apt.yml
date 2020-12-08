@@ -1,6 +1,6 @@
 ---
 - name: updating debian based systems
-  hosts: debian
+  hosts: all
   become: true
 
   tasks:
