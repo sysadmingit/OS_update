@@ -1,6 +1,6 @@
 ---
 - name: updating Redhat base systems
-  hosts: k8_cluster
+  hosts: all
   become: true
   roles:
     - kubernetes
